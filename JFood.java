@@ -7,23 +7,12 @@
  */
 public class JFood
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class JFood
-     */
-    public JFood()
+    public static void main(String[] args)
     {
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void main(String[] args)
-    {
+        Location location1=new Location("Balikpapan", "Banda Aceh", "Hometown");
+        Seller seller1=new Seller(01, "Raditiya", "praditiya92@gmail.com", "081380808435", location1); 
+        Food food=new Food(01, "Ayam", seller1, 10000, "Makanan");
+        Customer customer1=new Customer(01, "Raya", "rayaaa1212@gmail.com", "mamamiaa", "12-12-2012");
+        Invoice invoice1=new Invoice(01, 01, "12-12-2012", customer1, 10000);
     }
 }
