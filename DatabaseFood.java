@@ -1,17 +1,16 @@
 
 /**
- * Write a description of class DatabaseFood here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class for the food database so the user can call a function such as add food, remove food, get food, and get list of food.
+ * @author Muhammad Aditiya Pratama
+ * @version 0.0.1 27/02/2020
  */
 public class DatabaseFood
 {
-    // instance variables - replace the example below with your own
     private String[] listFood;
 
     /**
      * Constructor for objects of class DatabaseFood
+     * there's nothing because the parameter has't been made yet.
      */
     public DatabaseFood()
     {

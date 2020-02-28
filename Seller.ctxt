@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Seller
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Seller\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ to\ put\ data\ of\ the\ seller\ such\ as\ id,\ name,\ email,\ phone\ number,\ and\ location\ of\ the\ seller\ data.\r\n\ @author\ Muhammad\ Aditiya\ Pratama\r\n\ @version\ 0.0.1\ 27/02/2020\r\n
 comment1.params=id\ name\ email\ phoneNumber\ location
 comment1.target=Seller(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ Location)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Seller\r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Seller.\r\n\ @param\ id\ is\ for\ initializing\ the\ id\ input.\r\n\ @param\ name\ is\ for\ initializing\ the\ name\ input.\r\n\ @param\ email\ is\ for\ initializing\ the\ email\ input.\r\n\ @param\ phoneNumber\ is\ for\ initalizing\ the\ phone\ number\ input.\r\n\ @param\ location\ is\ for\ initializing\ the\ location\ input.\r\n
 comment10.params=phoneNumber
 comment10.target=void\ setPhoneNumber(java.lang.String)
 comment11.params=location

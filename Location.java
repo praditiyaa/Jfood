@@ -1,9 +1,8 @@
 
 /**
- * Write a description of class Location here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class to put the location data such as province, description, and city data.
+ * @author Muhammad Aditiya Pratama
+ * @version 0.0.1 27/02/2020
  */
 public class Location
 {

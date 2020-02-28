@@ -1,20 +1,29 @@
 
 /**
- * Write a description of class Invoice here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class to put invoice data such as id, id food, date, total price and the custumer data.
+ * @author Muhammad Aditiya Pratama
+ * @version 0.0.1 27/02/2020
  */
 public class Invoice
 {
-    // instance variables - replace the example below with your own
+    /**
+     * using private modifier so only this class can access this.
+     * there's 5 instance each with its own mean like id for the invoice id, idfood for the food id,
+     * date for the invoice date,totalPrice is for the total price and Customer is for the customer data.
+     * for the customer instance it's connected to the customer class to gain it's data.
+     */
     private int id;
     private int idFood;
     private String date;
     private int totalPrice;
     private Customer customer;
     /**
-     * Constructor for objects of class Invoice
+     * Constructor for objects of class Invoice.
+     * @param id is for initializing the invoice id input.
+     * @param idFood is for initializing the food id input.
+     * @param date is for initializing the invoice date input.
+     * @param customer is for initalizing the customer input.
+     * @param totalPrice is for initializing the total price input.
      */
     public Invoice(int id, int idFood, String date, Customer customer, int totalPrice)
     {
@@ -73,5 +82,6 @@ public class Invoice
     }
     public void printData()
     {
+        System.out.println(totalPrice);
     }
 }

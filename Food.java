@@ -1,13 +1,11 @@
 
 /**
- * Write a description of class Food here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class to put food data such as id, name, seller, price, and category of the food.
+ * @author Muhammad Aditiya Pratama
+ * @version 0.0.1 27/02/2020
  */
 public class Food
 {
-    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private Seller seller;
@@ -15,6 +13,8 @@ public class Food
     private String category;
     /**
      * Constructor for objects of class Food
+     * there's 5 instance each with its own function like id for the food id, name for the food name,
+     * seller for the food seller, price is for the food price and category is for the food category data.
      */
     public Food(int id, String name, Seller seller, int price, String category)
     {
@@ -73,5 +73,6 @@ public class Food
     }
     public void printData()
     {
+        System.out.println(name);
     }
 }

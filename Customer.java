@@ -1,12 +1,16 @@
 /**
- * Write a description of class Customer here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class to put data of the such as id, name, email, password, and join date of the customer.
+ * @author Muhammad Aditiya Pratama
+ * @version 0.0.1 27/02/2020
  */
 public class Customer
 {
-    // instance variables - replace the example below with your own
+    /**
+     * using private modifier so only this class can access this.
+     * there's 5 instance each with its own mean like id for the customer id, name for the customer name,
+     * email for the customer email, password is for the customer password and joinDate is for the date
+     * when the customer join.
+     */
     private int id;
     private String name;
     private String email;
@@ -14,6 +18,11 @@ public class Customer
     private String joinDate;
     /**
      * Constructor for objects of class Customer
+     * @param id is for initializing the customer id input.
+     * @param name is for initializing the customer name input.
+     * @param email is for initializing the customer email input.
+     * @param password is for initalizing the customer password input.
+     * @param joinDate is for initializing the date when the customer join input.
      */
     public Customer(int id, String name, String email, String password, String joinDate)
     {

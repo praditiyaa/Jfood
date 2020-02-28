@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Invoice
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Invoice\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ to\ put\ invoice\ data\ such\ as\ id,\ id\ food,\ date,\ total\ price\ and\ the\ custumer\ data.\r\n\ @author\ Muhammad\ Aditiya\ Pratama\r\n\ @version\ 0.0.1\ 27/02/2020\r\n
 comment1.params=id\ idFood\ date\ customer\ totalPrice
 comment1.target=Invoice(int,\ int,\ java.lang.String,\ Customer,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Invoice\r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Invoice.\r\n\ @param\ id\ is\ for\ initializing\ the\ invoice\ id\ input.\r\n\ @param\ idFood\ is\ for\ initializing\ the\ food\ id\ input.\r\n\ @param\ date\ is\ for\ initializing\ the\ invoice\ date\ input.\r\n\ @param\ customer\ is\ for\ initalizing\ the\ customer\ input.\r\n\ @param\ totalPrice\ is\ for\ initializing\ the\ total\ price\ input.\r\n
 comment10.params=totalPrice
 comment10.target=void\ setTotalPrice(int)
 comment11.params=customer
