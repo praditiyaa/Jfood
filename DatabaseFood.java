@@ -6,36 +6,21 @@
  */
 public class DatabaseFood
 {
-    private String[] listFood;
+    private static String[] listFood;
 
-    /**
-     * Constructor for objects of class DatabaseFood
-     * there's nothing because the parameter has't been made yet.
-     */
-    public DatabaseFood()
-    {
-       
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public boolean addFood(Food food)
+    public static boolean addFood(Food food)
     {
         return false;
     }
-    public boolean removeFood(Food food)
+    public static boolean removeFood(Food food)
     {
         return false;
     }
-    public Food getFood()
+    public static Food getFood()
     {
         return null;
     }
-    public String[] getListFood()
+    public static String[] getListFood()
     {
         return null;
     }

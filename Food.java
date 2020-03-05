@@ -10,13 +10,13 @@ public class Food
     private String name;
     private Seller seller;
     private int price;
-    private String category;
+    private FoodCategory category;
     /**
      * Constructor for objects of class Food
      * there's 5 instance each with its own function like id for the food id, name for the food name,
      * seller for the food seller, price is for the food price and category is for the food category data.
      */
-    public Food(int id, String name, Seller seller, int price, String category)
+    public Food(int id, String name, Seller seller, int price, FoodCategory category)
     {
         this.id=id;
         this.name=name;
@@ -47,7 +47,7 @@ public class Food
     {
         return this.price;
     }
-    public String getCategory()
+    public FoodCategory getCategory()
     {
         return this.category;
     }
@@ -67,12 +67,17 @@ public class Food
     {
         this.price=price;
     }
-    public void setCategory(String category)
+    public void setCategory(FoodCategory category)
     {
         this.category=category;
     }
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("====================FOOD====================");
+        System.out.println("ID: "+ id);
+        System.out.println("Seller: " + seller.getName());
+        System.out.println("City: " + seller.getLocation().getCity());
+        System.out.println("Price: " + price);
+        System.out.println("Category: " + category);
     }
 }
