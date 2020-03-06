@@ -12,10 +12,10 @@ public class JFood
         Seller seller1=new Seller(01,"Muhammad Aditiya Pratama", "praditiya92@gmail.com", "08130808435", bornPlace);
         Food food1=new Food(01, "Lasagna", seller1, 15000, FoodCategory.beverages);
         Customer customer1=new Customer(01, "Khallisa", "khallisamrn@gmail.com", "mamamiaa", "28-02-2020");
-        Invoice invoice1=new Invoice(01, 01, "28-02-2020", customer1, 15000);
+        Invoice invoice1=new Invoice(01, 01, "28-02-2020", customer1, 15000, InvoiceStatus.Finished);
         
         
-        food1.printData();
+        invoice1.printData();
         
     }
 }

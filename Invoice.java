@@ -17,6 +17,8 @@ public class Invoice
     private String date;
     private int totalPrice;
     private Customer customer;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
     /**
      * Constructor for objects of class Invoice.
      * @param id is for initializing the invoice id input.
@@ -25,13 +27,14 @@ public class Invoice
      * @param customer is for initalizing the customer input.
      * @param totalPrice is for initializing the total price input.
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice)
+    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status)
     {
         this.id=id;
         this.idFood=idFood;
         this.date=date;
         this.customer=customer;
         this.totalPrice=totalPrice;
+        this.status=status;
     }
 
     /**
@@ -60,6 +63,14 @@ public class Invoice
     {
         return this.customer;
     }
+    public PaymentType getPaymentType()
+    {
+        return this.paymentType;
+    }
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return this.status;
+    }
     public void setId(int id)
     {
         this.id=id;
@@ -80,8 +91,22 @@ public class Invoice
     {
         this.customer=customer;
     }
+    public void setPaymentType(PaymentType paymentType)
+    {
+        this.paymentType=paymentType;
+    }
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status=status;
+    }
     public void printData()
     {
-        System.out.println(totalPrice);
+        System.out.println("====================FOOD====================");
+        System.out.println("ID: "+ id);
+        System.out.println("Food ID: " + idFood);
+        System.out.println("Date: " + date);
+        System.out.println("Customer: " + customer.getName());
+        System.out.println("Total Price: " + totalPrice);
+        System.out.println("Status: " + status);
     }
 }
