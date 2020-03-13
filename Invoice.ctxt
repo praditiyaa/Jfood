@@ -18,7 +18,6 @@ comment15.params=
 comment15.target=void\ printData()
 comment2.params=
 comment2.target=int\ getId()
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
 comment3.params=
 comment3.target=Food\ getFood()
 comment4.params=

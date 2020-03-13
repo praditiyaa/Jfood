@@ -1,40 +1,46 @@
 
-
-public class CashlessInvoice extends Invoice
+/**
+ * Write a description of class CashInvoice here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class CashInvoice extends Invoice
 {
-    private static final PaymentType PAYMENT_TYPE = PaymentType.cashless;
-    private Promo promo;
-  
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    private static final PaymentType PAYMENT_TYPE = PaymentType.cash;
+    private int deliveryFee;
+
+    /**
+     * Constructor for objects of class CashInvoice
+     */
+    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
     {
         super(id, food, date, customer, invoiceStatus);
         
-        
     }
-    public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
+    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
     {
         super(id, food, date, customer, invoiceStatus);
-        this.promo=promo;
-        
-        
+        this.deliveryFee=deliveryFee;
     }
+
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    public Promo getPromo()
+    public int getDeliveryFee()
     {
-        return promo;
+        return deliveryFee;
     }
-    public void setPromo(Promo promo)
+    public void setDeliveryFee(int deliveryFee)
     {
-        this.promo=promo;
+        this.deliveryFee=deliveryFee;
     }
     public void setTotalPrice()
     {
-        if (promo !=null && promo.getActive() == true && promo.getMinPrice() < getFood().getPrice())
+        if (deliveryFee != 0)
         {
-            super.totalPrice = getFood().getPrice() - promo.getDiscount();
+            super.totalPrice = getFood().getPrice() + getDeliveryFee();
         }
         else
         {
@@ -43,14 +49,14 @@ public class CashlessInvoice extends Invoice
     }
     public void printData()
     {
-        if (promo !=null && promo.getActive() == true && promo.getMinPrice() < getFood().getPrice())
+        if (deliveryFee != 0 )
         {
             System.out.println("====================FOOD====================");
             System.out.println("ID: "+ super.getId());
             System.out.println("Food: " + super.getFood().getName());
             System.out.println("Date: " + super.getDate());
             System.out.println("Customer: " + super.getCustomer().getName());
-            System.out.println("Promo: " + promo.getCode());
+            System.out.println("Delivery Fee: " + getDeliveryFee());
             System.out.println("Total Price: " + totalPrice);
             System.out.println("Status: " + super.getInvoiceStatus());
             System.out.println("Payment Type: " + PAYMENT_TYPE);
