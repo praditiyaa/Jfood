@@ -1,3 +1,7 @@
+import java.util.Calendar;
+import java.util.*;
+import java.text.*;
+import java.util.regex.*;
 /**
  * Class to put data of the such as id, name, email, password, and join date of the customer.
  * @author Muhammad Aditiya Pratama
@@ -15,7 +19,7 @@ public class Customer
     private String name;
     private String email;
     private String password;
-    private String joinDate;
+    private Calendar joinDate;
     /**
      * Constructor for objects of class Customer
      * @param id is for initializing the customer id input.
@@ -24,7 +28,7 @@ public class Customer
      * @param password is for initalizing the customer password input.
      * @param joinDate is for initializing the date when the customer join input.
      */
-    public Customer(int id, String name, String email, String password, String joinDate)
+    public Customer(int id, String name, String email, String password, Calendar joinDate)
     {
         this.id=id;
         this.name=name;
@@ -32,13 +36,22 @@ public class Customer
         this.password=password;
         this.joinDate=joinDate;
     }
+    public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth)
+    {
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.password=password;
+        joinDate=new GregorianCalendar(year, month, dayOfMonth);
+    }
+    public Customer(int id, String name, String email, String password)
+    {
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.password=password;
+    }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public int getId()
     {
         return this.id;
@@ -55,7 +68,7 @@ public class Customer
     {
         return this.password;
     }
-    public String getJoinDate()
+    public Calendar getJoinDate()
     {
         return this.joinDate;
     }
@@ -69,18 +82,38 @@ public class Customer
     }
     public void setEmail(String email)
     {
-        this.email=email;
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(email);
+        this.email = (m.matches())?email: null;
     }
     public void setPassword(String password)
     {
-        this.password=password;
+        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern passwordPattern = Pattern.compile(passwordRegex);
+        Matcher passwordMatcher = passwordPattern.matcher(password);
+        this.password = (passwordMatcher.matches())?password: null;
     }
-    public void setJoinDate(String joinDate)
+    public void setJoinDate(Calendar joinDate)
     {
         this.joinDate=joinDate;
     }
-    public void printData()
+    public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        System.out.println(name);
+        joinDate=new GregorianCalendar(year, month, dayOfMonth);
+    }
+    public String toString()
+    {
+       if(joinDate != null)
+       {
+           return "Id =  "+id+"\nName = "+name+"\nEmail = "+email+"\nPassword = "+password+"\nDate = "+
+           joinDate.get(Calendar.DAY_OF_MONTH)+"/"+
+           joinDate.get(Calendar.MONTH)+"/"+
+           joinDate.get(Calendar.YEAR);
+       }
+       else
+       {    
+           return "ID = "+id+"\nName = "+name+"\nEmail = "+email+"\nPassword = "+password;
+       }
     }
 }

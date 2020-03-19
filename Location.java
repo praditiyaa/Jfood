@@ -50,8 +50,12 @@ public class Location
     {
         this.description=description;
     }
-    public void printData()
+    //public void printData()
     {
         System.out.println(province);
+    }
+    public String toString()
+    {
+        return "Province = "+province+"\nCity = "+city+"\nDescription = "+description;
     }
 }

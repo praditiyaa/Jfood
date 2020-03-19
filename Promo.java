@@ -67,9 +67,13 @@ public class Promo
     {
         this.active=active;
     }
-    public void printData()
+    public String toString()
     {
+        return "Id = "+id+"\nCode = "+code+"\nDiscount = "+discount+"\nMin Price = "+minPrice+"\nActive = "+active;
     }
+    //public void printData()
+    //{
+    //}
     
     
 }

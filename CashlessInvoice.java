@@ -8,15 +8,11 @@ public class CashlessInvoice extends Invoice
     public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
     {
         super(id, food, date, customer, invoiceStatus);
-        
-        
     }
     public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
     {
         super(id, food, date, customer, invoiceStatus);
         this.promo=promo;
-        
-        
     }
     public PaymentType getPaymentType()
     {

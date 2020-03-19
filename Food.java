@@ -71,13 +71,17 @@ public class Food
     {
         this.category=category;
     }
-    public void printData()
+    //public void printData()
+    //{
+        //System.out.println("====================FOOD====================");
+        //System.out.println("ID: "+ id);
+        //System.out.println("Seller: " + seller.getName());
+        //System.out.println("City: " + seller.getLocation().getCity());
+        //System.out.println("Price: " + price);
+        //System.out.println("Category: " + category);
+    //}
+    public String toString()
     {
-        System.out.println("====================FOOD====================");
-        System.out.println("ID: "+ id);
-        System.out.println("Seller: " + seller.getName());
-        System.out.println("City: " + seller.getLocation().getCity());
-        System.out.println("Price: " + price);
-        System.out.println("Category: " + category);
+        return "Id = "+id+"\n Name = "+name+"\n Seller = "+seller.getName()+""+seller.getLocation().getCity()+"\nPrice = "+price+"\nCategory = "+category;
     }
 }
