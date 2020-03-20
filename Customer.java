@@ -1,7 +1,13 @@
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.*;
 import java.text.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.Scanner;
 /**
  * Class to put data of the such as id, name, email, password, and join date of the customer.
  * @author Muhammad Aditiya Pratama
@@ -20,6 +26,7 @@ public class Customer
     private String email;
     private String password;
     private Calendar joinDate;
+    private SimpleDateFormat tgl = new SimpleDateFormat("dd MMMM yyyy");
     /**
      * Constructor for objects of class Customer
      * @param id is for initializing the customer id input.
@@ -30,26 +37,27 @@ public class Customer
      */
     public Customer(int id, String name, String email, String password, Calendar joinDate)
     {
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.joinDate=joinDate;
+       this.id=id;
+       this.name=name;
+       setEmail(email);
+       setPassword(password);
+       this.joinDate=joinDate;
     }
     public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth)
     {
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        joinDate=new GregorianCalendar(year, month, dayOfMonth);
+       this.id = id;
+       this.name = name;
+       setEmail(email);
+       setPassword(password);
+       setJoinDate(year,month,dayOfMonth);
     }
     public Customer(int id, String name, String email, String password)
     {
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
+       this.id=id;
+       this.name=name;
+       setEmail(email);
+       setPassword(password);
+       this.joinDate=Calendar.getInstance();
     }
 
     public int getId()
@@ -70,7 +78,7 @@ public class Customer
     }
     public Calendar getJoinDate()
     {
-        return this.joinDate;
+        return joinDate;
     }
     public void setId(int id)
     {
@@ -82,17 +90,31 @@ public class Customer
     }
     public void setEmail(String email)
     {
-        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(email);
-        this.email = (m.matches())?email: null;
+        String regex="^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        Pattern pattern=Pattern.compile(regex);
+        Matcher matcher=pattern.matcher(email);
+        if(matcher.matches())
+        {
+            this.email=email;
+        }
+        else 
+        {
+            this.email="";   
+        }
     }
     public void setPassword(String password)
     {
-        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
-        Pattern passwordPattern = Pattern.compile(passwordRegex);
-        Matcher passwordMatcher = passwordPattern.matcher(password);
-        this.password = (passwordMatcher.matches())?password: null;
+        String passwordRegex="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern passwordPattern=Pattern.compile(passwordRegex);
+        Matcher passwordMatcher=passwordPattern.matcher(password);
+        if(passwordMatcher.matches())
+        {
+            this.password=password;
+        }
+        else 
+        {
+            this.password="";
+        }
     }
     public void setJoinDate(Calendar joinDate)
     {
@@ -104,16 +126,28 @@ public class Customer
     }
     public String toString()
     {
-       if(joinDate != null)
-       {
-           return "Id =  "+id+"\nName = "+name+"\nEmail = "+email+"\nPassword = "+password+"\nDate = "+
-           joinDate.get(Calendar.DAY_OF_MONTH)+"/"+
-           joinDate.get(Calendar.MONTH)+"/"+
-           joinDate.get(Calendar.YEAR);
-       }
-       else
-       {    
-           return "ID = "+id+"\nName = "+name+"\nEmail = "+email+"\nPassword = "+password;
-       }
+       String string = "";
+        
+        if(joinDate!=null)
+        {
+            String tanggal=tgl.format(joinDate.getTime());  
+            string=
+            "ID = "+id+"\n"+
+            "Nama = "+name+"\n"+
+            "Email = "+email+"\n"+
+            "Password = "+password+"\n"+
+            "Join Date = "+tanggal+"\n";
+        }
+        else
+        {
+            string=
+            "ID = "+id+"\n"+
+            "Nama = "+name+"\n"+
+            "Email = "+email+"\n"+
+            "Password = "+password+"\n";
+        }
+        
+       System.out.println(string);
+       return string;
     }
 }

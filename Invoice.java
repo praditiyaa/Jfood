@@ -1,4 +1,7 @@
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 /**
  * Class to put invoice data such as id, id food, date, total price and the custumer data.
  * @author Muhammad Aditiya Pratama
@@ -14,10 +17,11 @@ public abstract class Invoice
      */
     private int id;
     private Food food;
-    private String date;
+    private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
+    private SimpleDateFormat tgl = new SimpleDateFormat("dd MMMM yyyy");
     /**
      * Constructor for objects of class Invoice.
      * @param id is for initializing the invoice id input.
@@ -26,11 +30,10 @@ public abstract class Invoice
      * @param customer is for initalizing the customer input.
      * @param totalPrice is for initializing the total price input.
      */
-    public Invoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
         this.id=id;
         this.food=food;
-        this.date=date;
         this.customer=customer;
         this.invoiceStatus=invoiceStatus;
     }
@@ -43,7 +46,7 @@ public abstract class Invoice
     {
         return this.food;
     }
-    public String getDate()
+    public Calendar getDate()
     {
         return this.date;
     }
@@ -68,9 +71,13 @@ public abstract class Invoice
     {
         this.food=food;
     }
-    public void setDate(String date)
+    public Calendar setDate(Calendar date)
     {
-        this.date=date;
+        return date;
+    }
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date=new GregorianCalendar(year, month, dayOfMonth);
     }
     public abstract void setTotalPrice();
     public void setCustomer(Customer customer)
@@ -81,6 +88,6 @@ public abstract class Invoice
     {
         this.invoiceStatus=invoiceStatus;
     }
-    public abstract void printData();
+    public abstract String toString();
 
 }
