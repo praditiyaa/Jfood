@@ -16,23 +16,23 @@ public class JFood
         Customer customer2=new Customer(02, "Pratama", "khallisamrn@gmail.com", "Mamamiaa13", 2020, 03, 19);
         Customer customer3=new Customer(03, "Muhammad", "muhammad.aditiya71@gmail.com", "Mamamiaa13");
         Promo promo1=new Promo(01, "LinkAja101", 5000, 10000, true);
-        //CashlessInvoice invoice1=new CashlessInvoice(1, food1, "3/3/2020", customer1, InvoiceStatus.Finished);
+        CashlessInvoice invoice1=new CashlessInvoice(1, food1, customer1, InvoiceStatus.Finished);
         //CashlessInvoice invoice2=new CashlessInvoice(2, food2, "3/3/2020", customer1, InvoiceStatus.Finished, promo1);
         //CashlessInvoice invoice3=new CashlessInvoice(3, food1, "3/3/2020", customer1, InvoiceStatus.Finished, promo1);
-        //CashInvoice invoice4= new CashInvoice(4, food1, "3/3/2020", customer1, InvoiceStatus.Finished);
+        CashInvoice invoice4= new CashInvoice(4, food1, customer1, InvoiceStatus.Finished);
         //CashInvoice invoice5= new CashInvoice(5, food1, "3/3/2020", customer1, InvoiceStatus.Finished, 10000);
-        //invoice1.setTotalPrice();
-        //invoice2.setTotalPrice();
-        //invoice1.printData();
-        //invoice2.printData();
-        customer1.toString();
-        customer2.toString();
-        customer3.toString();
+        invoice1.setTotalPrice();
+        invoice4.setTotalPrice();
+        invoice1.toString();
+        invoice4.toString();
+        //customer1.toString();
+        //customer2.toString();
+        //customer3.toString();
         
-        customer1.setEmail("praditiya92@gmail.com");
-        customer1.setPassword("Mamamia12");
+        //customer1.setEmail("praditiya92@gmail.com");
+        //customer1.setPassword("Mamamia12");
         
-        customer1.toString();
+        //customer1.toString();
         
         
         

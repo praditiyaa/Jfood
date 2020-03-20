@@ -17,7 +17,7 @@ public abstract class Invoice
      */
     private int id;
     private Food food;
-    private Calendar date;
+    protected Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
