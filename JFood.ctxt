@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=JFood
-comment0.text=\r\n\ Class\ to\ make\ the\ object\ such\ as\ making\ the\ location\ and\ the\ food\ object\ with\ the\ data\ inside.\r\n\ @author\ Muhammad\ Aditiya\ Pratama\r\n\ @version\ 0.0.1\ 27/02/2020\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
