@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Date;
@@ -18,14 +19,14 @@ public class CashInvoice extends Invoice
     /**
      * Constructor for objects of class CashInvoice
      */
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
         
     }
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
         this.deliveryFee=deliveryFee;
     }
 
@@ -43,48 +44,55 @@ public class CashInvoice extends Invoice
     }
     public void setTotalPrice()
     {
-        if (deliveryFee != 0)
+        int foodPrice=0;
+        for(int i = 0; i < super.getFoods().size(); i++)
         {
-            super.totalPrice = getFood().getPrice() + getDeliveryFee();
+            foodPrice+=super.getFoods().get(i).getPrice();
+        }
+        if(deliveryFee>0)
+        {
+            super.totalPrice=foodPrice+deliveryFee;
         }
         else
         {
-            super.totalPrice = getFood().getPrice();
+            super.totalPrice=foodPrice;
         }
     }
     public String toString()
     {
-       String string = "";
-        if(deliveryFee == 0)
+        String string="";
+        Date date = super.getDate().getTime();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+        String date1 = format1.format(date);
+
+        if(deliveryFee>0)
         {
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-            LocalDateTime now = LocalDateTime.now(); 
             string=
-            ("================INVOICE================" +
-            "\nID: " +super.getId() +
-            "\nFood: " +super.getFood().getName() +
-            "\nDate: " +dtf.format(now)+
-            "\nCustomer: " +super.getCustomer().getName() +
-            "\nTotal Price: " +getFood().getPrice() +
-            "\nStatus: " +super.getInvoiceStatus() +
-            "\nPayment Type: " +PAYMENT_TYPE + "\n");
+                    "ID: "+super.getId()+
+                            "\nFood: "+super.getFoods()+
+                            "\nDate: "+date1+
+                            "\nCustomer: "+super.getCustomer().getName()+
+                            "\nDelivery Fee: "+deliveryFee+
+                            "\nTotal Price: "+super.totalPrice+
+                            "\nStatus: "+super.getInvoiceStatus()+
+                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+
+            System.out.println(string);
         }
         else
         {
-            DateTimeFormatter skrg = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-            LocalDateTime now = LocalDateTime.now(); 
             string=
-            ("================INVOICE================" +
-            "\nID: " +super.getId() +
-            "\nFood: " +super.getFood().getName() +
-            "\nDate: " +skrg.format(now)+
-            "\nCustomer: " +super.getCustomer().getName() +
-            "\nDeliveryFee : " + getDeliveryFee() +
-            "\nTotal Price: " +super.getTotalPrice() +
-            "\nStatus: " +super.getInvoiceStatus() +
-            "\nPayment Type: " +PAYMENT_TYPE + "\n");
+                    "ID: "+super.getId()+
+                            "\nFoods: "+super.getFoods()+
+                            "\nDate: "+date1+
+                            "\nCustomer: "+super.getCustomer().getName()+
+                            "\nDelivery Fee: 0"+
+                            "\nTotal Price: "+super.totalPrice+
+                            "\nStatus: "+super.getInvoiceStatus()+
+                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+
+            System.out.println(string);
         }
-        System.out.println(string);
         return string;
     }
 }

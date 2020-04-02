@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Date;
@@ -16,35 +17,34 @@ public abstract class Invoice
      * for the customer instance it's connected to the customer class to gain it's data.
      */
     private int id;
-    private Food food;
+    private ArrayList<Food> foods;
     protected Calendar date;
     protected int totalPrice;
     private Customer customer;
-    private InvoiceStatus invoiceStatus;
+    private InvoiceStatus Ongoing;
     private SimpleDateFormat tgl = new SimpleDateFormat("dd MMMM yyyy");
     /**
      * Constructor for objects of class Invoice.
-     * @param id is for initializing the invoice id input.
-     * @param idFood is for initializing the food id input.
-     * @param date is for initializing the invoice date input.
-     * @param customer is for initalizing the customer input.
-     * @param totalPrice is for initializing the total price input.
+     * //@param id is for initializing the invoice id input.
+     * //@param idFood is for initializing the food id input.
+     * //@param date is for initializing the invoice date input.
+     * //@param customer is for initalizing the customer input.
+     * //@param totalPrice is for initializing the total price input.
      */
-    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id=id;
-        this.food=food;
+        this.foods=foods;
         this.customer=customer;
-        this.invoiceStatus=invoiceStatus;
     }
 
     public int getId()
     {
         return this.id;
     }
-    public Food getFood()
+    public ArrayList<Food> getFoods()
     {
-        return this.food;
+        return this.foods;
     }
     public Calendar getDate()
     {
@@ -61,15 +61,15 @@ public abstract class Invoice
     public abstract PaymentType getPaymentType();
     public InvoiceStatus getInvoiceStatus()
     {
-        return this.invoiceStatus;
+        return this.Ongoing;
     }
     public void setId(int id)
     {
         this.id=id;
     }
-    public void setFood(Food food)
+    public void setFoods(ArrayList<Food> foods)
     {
-        this.food=food;
+        this.foods=foods;
     }
     public Calendar setDate(Calendar date)
     {
@@ -83,10 +83,6 @@ public abstract class Invoice
     public void setCustomer(Customer customer)
     {
         this.customer=customer;
-    }
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.invoiceStatus=invoiceStatus;
     }
     public abstract String toString();
 
