@@ -26,10 +26,7 @@ public class Food
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+
      */
     public int getId()
     {
@@ -71,17 +68,14 @@ public class Food
     {
         this.category=category;
     }
-    //public void printData()
-    //{
-        //System.out.println("====================FOOD====================");
-        //System.out.println("ID: "+ id);
-        //System.out.println("Seller: " + seller.getName());
-        //System.out.println("City: " + seller.getLocation().getCity());
-        //System.out.println("Price: " + price);
-        //System.out.println("Category: " + category);
-    //}
     public String toString()
     {
-        return "Id = "+id+"\n Name = "+name+"\n Seller = "+seller.getName()+""+seller.getLocation().getCity()+"\nPrice = "+price+"\nCategory = "+category;
+        return
+        "\nId : "+id+
+        "\nName : "+name+
+        "\nSeller : "+seller.getName()+
+        "\nCity : "+seller.getLocation().getCity()+
+        "\nPrice : "+price+
+        "\nCategory : "+category;
     }
 }

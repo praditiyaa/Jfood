@@ -7,7 +7,7 @@
  */
 public enum FoodCategory
 {
-    beverages("Beverages"), coffe("Coffe"), western("Western"), snacks("Snacks"), rice("Rice"), noodles("Noodles"), bakery("Bakery"), japanese("Japanese");
+    beverages("Beverages"), coffe("Coffee"), western("Western"), snacks("Snacks"), rice("Rice"), noodles("Noodles"), bakery("Bakery"), japanese("Japanese");
     
     private String category;
     

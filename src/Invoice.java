@@ -21,7 +21,7 @@ public abstract class Invoice
     protected Calendar date;
     protected int totalPrice;
     private Customer customer;
-    private InvoiceStatus Ongoing;
+    private InvoiceStatus invoiceStatus;
     private SimpleDateFormat tgl = new SimpleDateFormat("dd MMMM yyyy");
     /**
      * Constructor for objects of class Invoice.
@@ -36,6 +36,7 @@ public abstract class Invoice
         this.id=id;
         this.foods=foods;
         this.customer=customer;
+        this.invoiceStatus=InvoiceStatus.Ongoing;
     }
 
     public int getId()
@@ -61,7 +62,7 @@ public abstract class Invoice
     public abstract PaymentType getPaymentType();
     public InvoiceStatus getInvoiceStatus()
     {
-        return this.Ongoing;
+        return this.invoiceStatus;
     }
     public void setId(int id)
     {
@@ -86,4 +87,8 @@ public abstract class Invoice
     }
     public abstract String toString();
 
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
+    {
+        this.invoiceStatus=invoiceStatus;
+    }
 }

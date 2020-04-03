@@ -126,28 +126,19 @@ public class Customer
     }
     public String toString()
     {
-       String string = "";
-        
-        if(joinDate!=null)
+        String date = "";
+        SimpleDateFormat simpleDate = new SimpleDateFormat("dd MMMM yyyy");
+        if(getJoinDate() != null)
         {
-            String tanggal=tgl.format(joinDate.getTime());  
-            string=
-            "ID = "+id+"\n"+
-            "Nama = "+name+"\n"+
-            "Email = "+email+"\n"+
-            "Password = "+password+"\n"+
-            "Join Date = "+tanggal+"\n";
+            date = simpleDate.format(joinDate.getTime());
         }
-        else
-        {
-            string=
-            "ID = "+id+"\n"+
-            "Nama = "+name+"\n"+
-            "Email = "+email+"\n"+
-            "Password = "+password+"\n";
+        return
+            "\nID: " + getId() +
+            "\nName: " + getName() +
+            "\nEmail: " + getEmail() +
+            "\nPassword: " + getPassword() +
+            "\nJoin Date: " + date ;
+
         }
-        
-       System.out.println(string);
-       return string;
-    }
+
 }

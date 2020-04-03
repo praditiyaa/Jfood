@@ -22,12 +22,11 @@ public class DatabasePromo
     public static Promo getPromoById(int id)
     {
         Promo dummy = null;
-        for (int i = 0; i < PROMO_DATABASE.size(); i++) {
-            Promo promo = PROMO_DATABASE.get(i);
+        for (Promo promo : PROMO_DATABASE) {
             if (promo.getId() == id) {
-                dummy=promo;
+                dummy = promo;
             } else {
-                dummy=null;
+                dummy = promo;
             }
         }
         return dummy;
@@ -40,7 +39,7 @@ public class DatabasePromo
             if (promo.getCode() == code) {
                 dummy=promo;
             } else {
-                dummy=null;
+                dummy=promo;
             }
         }
         return dummy;

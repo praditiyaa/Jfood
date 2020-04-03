@@ -59,7 +59,7 @@ public class CashlessInvoice extends Invoice
         if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
         {
             string=
-                    "ID: "+super.getId()+
+                            "ID: "+super.getId()+
                             "\nFood: "+super.getFoods()+
                             "\nDate: "+date1+
                             "\nCustomer: "+super.getCustomer().getName()+
@@ -73,7 +73,7 @@ public class CashlessInvoice extends Invoice
         else
         {
             string=
-                    "ID: "+super.getId()+
+                            "ID: "+super.getId()+
                             "\nFood: \n"+super.getFoods()+
                             "\nDate: "+date1+
                             "\nCustomer: "+super.getCustomer().getName()+
