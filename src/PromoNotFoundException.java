@@ -11,6 +11,6 @@ public class PromoNotFoundException extends Exception
 
     public String getMessage()
     {
-        return super.getMessage() + promo_error + "not Found";
+        return super.getMessage() + promo_error + " not Found";
     }
 }

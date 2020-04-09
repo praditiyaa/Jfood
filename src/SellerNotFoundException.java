@@ -11,6 +11,6 @@ public class SellerNotFoundException extends Exception
 
     public String getMessage()
     {
-        return super.getMessage() + seller_error + "not Found";
+        return super.getMessage() + seller_error + " not Found";
     }
 }

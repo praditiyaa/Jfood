@@ -10,6 +10,6 @@ public class PromoCodeAlreadyExistsException extends Exception
 
     public String getMessage()
     {
-        return super.getMessage() + promo_error + " already exists.";
+        return super.getMessage() + promo_error + " already Exists";
     }
 }

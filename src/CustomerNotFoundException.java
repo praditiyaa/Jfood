@@ -11,6 +11,6 @@ public class CustomerNotFoundException extends Exception
 
     public String getMessage()
     {
-        return super.getMessage() + customer_error + "Not Found";
+        return super.getMessage() + customer_error + " not Found";
     }
 }

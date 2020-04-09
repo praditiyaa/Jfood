@@ -9,10 +9,9 @@ public class EmailAlreadyExistsException extends Exception
         customer_error = customer_input;
     }
 
-    public String getExMessage()
+    public String getMessage()
     {
-        return super.getMessage() + customer_error.getEmail()
-                + ", or username: " + customer_error.getName() + " already exists.";
+        return super.getMessage() + customer_error.getEmail() + ", or username: " + customer_error.getName() + " already exists.";
     }
 }
 
