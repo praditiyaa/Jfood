@@ -69,11 +69,7 @@ public class Promo
     }
     public String toString()
     {
-        return "Id = "+id+"\nCode = "+code+"\nDiscount = "+discount+"\nMin Price = "+minPrice+"\nActive = "+active;
+        return "ID = "+id+"\nCode = "+code+"\nDiscount = "+discount+"\nMin Price = "+minPrice+"\nActive = "+active;
     }
-    //public void printData()
-    //{
-    //}
-    
     
 }

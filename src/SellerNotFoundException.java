@@ -4,7 +4,7 @@ public class SellerNotFoundException extends Exception
 
     public SellerNotFoundException(int seller_input)
     {
-        super("Customer ID: ");
+        super("Seller ID: ");
         this.seller_error = seller_input;
 
     }
