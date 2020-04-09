@@ -137,7 +137,7 @@ public class Customer
             "\nName: " + getName() +
             "\nEmail: " + getEmail() +
             "\nPassword: " + getPassword() +
-            "\nJoin Date: " + date ;
+            "\nJoin Date: " + date +"\n" ;
 
         }
 

@@ -23,17 +23,16 @@ public class DatabaseSeller
     }
 
     public static Seller getSellerById(int id)
+    throws SellerNotFoundException
     {
-        Seller dummy = null;
-        for (int i = 0; i < SELLER_DATABASE.size(); i++) {
-            Seller seller = SELLER_DATABASE.get(i);
-            if (seller.getId() == id) {
-                dummy=seller;
-            } else {
-                dummy=seller;
+        for (Seller seller : SELLER_DATABASE)
+        {
+            if (seller.getId() == id)
+            {
+                return seller;
             }
         }
-        return dummy;
+        throw new SellerNotFoundException(id);
     }
 
     public static boolean addSeller(Seller seller)
@@ -44,17 +43,15 @@ public class DatabaseSeller
     }
 
     public static boolean removeSeller(int id)
+    throws SellerNotFoundException
     {
-        boolean sellerStat = false;
         for (int i = 0; i < SELLER_DATABASE.size(); i++) {
             Seller seller = SELLER_DATABASE.get(i);
             if (seller.getId() == id) {
                 SELLER_DATABASE.remove(seller);
-                sellerStat=true;
-            } else {
-                sellerStat=false;
+                return true;
             }
         }
-        return sellerStat;
+        throw new SellerNotFoundException(id);
     }
 }

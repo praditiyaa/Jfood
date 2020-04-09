@@ -76,6 +76,6 @@ public class Food
         "\nSeller : "+seller.getName()+
         "\nCity : "+seller.getLocation().getCity()+
         "\nPrice : "+price+
-        "\nCategory : "+category;
+        "\nCategory : "+category +"\n";
     }
 }

@@ -39,8 +39,10 @@ public class DatabaseInvoice
 
     public static boolean addInvoice(Invoice invoice)
     {
-        for (Invoice invoice1 : INVOICE_DATABASE) {
-            if (invoice1.getInvoiceStatus().equals(invoice.getInvoiceStatus().Ongoing))
+        int customerId = invoice.getCustomer().getId();
+        for(Invoice invoices : INVOICE_DATABASE)
+        {
+            if (invoices.getCustomer().getId() == customerId  && invoices.getInvoiceStatus() == InvoiceStatus.Ongoing)
             {
                 return false;
             }
