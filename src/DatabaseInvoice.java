@@ -32,9 +32,10 @@ public class DatabaseInvoice
             if (invoice.getCustomer().getId() == customerId)
             {
                 listCust.add(invoice);
+                return listCust;
             }
         }
-        return listCust;
+        return null;
     }
 
     public static boolean addInvoice(Invoice invoice)

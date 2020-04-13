@@ -1,12 +1,8 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.lang.reflect.Array;
-import java.text.*;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
 public class CashlessInvoice extends Invoice
 {
     private static final PaymentType PAYMENT_TYPE = PaymentType.cashless;
@@ -38,53 +34,55 @@ public class CashlessInvoice extends Invoice
         super.totalPrice=0;
         for(Food foods : getFoods())
         {
-            super.totalPrice=super.totalPrice+foods.getPrice();
+            if (promo != null && foods.getPrice() >= promo.getMinPrice() && promo.getActive())
+            {
+                super.totalPrice = super.totalPrice - promo.getDiscount();
+            }
+            else
+            {
+                super.totalPrice = super.totalPrice + foods.getPrice();
+            }
         }
-        if(super.totalPrice>=promo.getMinPrice() && promo.getActive()) {
-            super.totalPrice = super.totalPrice - promo.getDiscount();
-        }
+
     }
     public String toString()
     {
         String string="";
-        Date date = super.getDate().getTime();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-        String date1 = format1.format(date);
-
         int foodPrice=0;
-        for(int i = 0; i < super.getFoods().size(); i++){
+        for(int i = 0; i <= super.getFoods().size(); i++){
             foodPrice+=super.getFoods().get(i).getPrice();
         }
 
-        if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
+        if(promo!=null&& promo.getActive() &&foodPrice>promo.getMinPrice())
         {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            LocalDateTime now = LocalDateTime.now();
             string=
-                    "================Invoice================" + "\n" +
+                    ("================Invoice================" + "\n" +
                             "ID: "+super.getId()+
                             "\nFood: "+super.getFoods()+
-                            "\nDate: "+date1+
+                            "\nDate: "+dtf.format(now)+
                             "\nCustomer: "+super.getCustomer().getName()+
                             "\nPromo: "+promo.getCode()+
                             "\nTotal Price: "+super.totalPrice+
                             "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+ getPaymentType() +"\n\n";
-
-            System.out.println(string);
+                            "\nPaymentType: "+ getPaymentType() +"\n\n");
         }
         else
         {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            LocalDateTime now = LocalDateTime.now();
             string=
-                    "================Invoice================" + "\n" +
+                    ("================Invoice================" + "\n" +
                             "ID: "+super.getId()+
                             "\nFood: \n"+super.getFoods()+
-                            "\nDate: "+date1+
+                            "\nDate: "+dtf.format(now)+
                             "\nCustomer: "+super.getCustomer().getName()+
                             "\nTotal Price: "+super.totalPrice+
                             "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+getPaymentType()+"\n\n";
-
-            System.out.println(string);
+                            "\nPaymentType: "+getPaymentType()+"\n\n");
         }
+        System.out.println(string);
         return string;
     }
 }

@@ -65,9 +65,11 @@ public class JFood
             System.out.println(e.getMessage());
         }
 
-        try {
+        try
+        {
             DatabaseFood.removeFood(3);
-        } catch (FoodNotFoundException e){
+        } catch (FoodNotFoundException e)
+        {
             System.out.println(e.getMessage());
         }
         System.out.println("~~~~~Database Promo~~~~~");

@@ -45,7 +45,7 @@ public class DatabaseCustomer
         lastId = customer.getId();
         return true;
     }
-    public static boolean removeCustomer(int id)
+    public static void removeCustomer(int id)
     throws CustomerNotFoundException
     {
         for (Customer customer : CUSTOMER_DATABASE)
@@ -53,7 +53,7 @@ public class DatabaseCustomer
             if (customer.getId() == id)
             {
                 CUSTOMER_DATABASE.remove(customer);
-                return true;
+                return;
             }
         }
         throw new CustomerNotFoundException(id);

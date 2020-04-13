@@ -41,28 +41,28 @@ public abstract class Invoice
 
     public int getId()
     {
-        return this.id;
+        return id;
     }
     public ArrayList<Food> getFoods()
     {
-        return this.foods;
+        return foods;
     }
     public Calendar getDate()
     {
-        return this.date;
+        return date;
     }
     public int getTotalPrice()
     {
-        return this.totalPrice;
+        return totalPrice;
     }
     public Customer getCustomer()
     {
-        return this.customer;
+        return customer;
     }
     public abstract PaymentType getPaymentType();
     public InvoiceStatus getInvoiceStatus()
     {
-        return this.invoiceStatus;
+        return invoiceStatus;
     }
     public void setId(int id)
     {
