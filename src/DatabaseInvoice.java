@@ -67,6 +67,7 @@ public class DatabaseInvoice
     }
 
     public static boolean removeInvoice ( int id)
+    throw InvoiceNotFoundException
         {
             for (int i = 0; i < INVOICE_DATABASE.size(); i++)
             {

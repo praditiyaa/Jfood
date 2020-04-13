@@ -53,41 +53,38 @@ public class CashInvoice extends Invoice
     }
     public String toString()
     {
-        String print="";
-        Date date = super.getDate().getTime();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-        String date1 = format1.format(date);
-
+        StringBuilder foodName = new StringBuilder();
+        for (Food food: getFoods())
+        {
+            foodName.append(food.getName()).append(", ");
+        }
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        LocalDateTime now = LocalDateTime.now();
         if(deliveryFee>0)
         {
-            print=
-                    "================Invoice================" + "\n" +
-                    "ID             : "+super.getId()+
-                    "\nFood         : "+super.getFoods()+
-                    "\nDate         : "+date1+
+            return
+                    "================Invoice================" +
+                    "\nID           : "+super.getId()+
+                    "\nFood         : "+foodName+
+                    "\nDate         : "+LocalDateTime.now()+
                     "\nCustomer     : "+super.getCustomer().getName()+
                     "\nDelivery Fee : "+deliveryFee+
                     "\nTotal Price  : "+super.totalPrice+
                     "\nStatus       : "+super.getInvoiceStatus()+
                     "\nPaymentType  : "+getPaymentType()+"\n\n";
-
-            System.out.println(print);
         }
         else
         {
-            print=
-                    "================Invoice================" + "\n" +
-                    "ID: "+super.getId()+
-                    "\nFoods: "+super.getFoods()+
-                    "\nDate: "+date1+
-                    "\nCustomer: "+super.getCustomer().getName()+
-                    "\nDelivery Fee: 0"+
-                    "\nTotal Price: "+super.totalPrice+
-                    "\nStatus: "+super.getInvoiceStatus()+
-                    "\nPaymentType: "+getPaymentType()+"\n\n";
-
-            System.out.println(print);
+            return
+                    "================Invoice================" +
+                    "\nID           : "+super.getId()+
+                    "\nFoods        : "+foodName+
+                    "\nDate         : "+LocalDateTime.now()+
+                    "\nCustomer     : "+super.getCustomer().getName()+
+                    "\nDelivery Fee : 0"+
+                    "\nTotal Price  : "+super.totalPrice+
+                    "\nStatus       : "+super.getInvoiceStatus()+
+                    "\nPaymentType  : "+getPaymentType()+"\n\n";
         }
-        return print;
     }
 }
