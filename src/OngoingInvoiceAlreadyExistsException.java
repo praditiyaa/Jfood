@@ -4,13 +4,13 @@ public class OngoingInvoiceAlreadyExistsException extends Exception
 
     public OngoingInvoiceAlreadyExistsException(Invoice invoice_input)
     {
-        super("Ongoing Invoice");
+        super("Ongoing Invoice ");
         this.invoice_error = invoice_input;
 
     }
 
     public String getMessage()
     {
-        return super.getMessage() + invoice_error.getInvoiceStatus() +  " already exist";
+        return super.getMessage() + " already exist";
     }
 }

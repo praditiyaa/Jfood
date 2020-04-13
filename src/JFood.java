@@ -68,20 +68,18 @@ public class JFood
         ArrayList<Food> food2 = new ArrayList<Food>();
         ArrayList<Food> food3 = new ArrayList<Food>();
 
-        try
-        {
-            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, food1, DatabaseCustomer.getCustomerById(1), 2000));
-            DatabaseInvoice.getInvoiceByCustomer(1).get(DatabaseInvoice.getInvoiceByCustomer(1).size() - 1).setTotalPrice();
-        }
-        catch(CustomerNotFoundException e)
+        try {DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, food1, DatabaseCustomer.getCustomerById(1), 2000));}
+        catch (OngoingInvoiceAlreadyExistsException | CustomerNotFoundException e)
         {System.out.println(e.getMessage());}
+
+        DatabaseInvoice.getInvoiceByCustomer(1).get(DatabaseInvoice.getInvoiceByCustomer(1).size() - 1).setTotalPrice();
 
         try
         {
             DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, food2, DatabaseCustomer.getCustomerById(1), 2000));
             DatabaseInvoice.getInvoiceByCustomer(1).get(DatabaseInvoice.getInvoiceByCustomer(1).size() - 1).setTotalPrice();
         }
-        catch(CustomerNotFoundException e)
+        catch(CustomerNotFoundException | OngoingInvoiceAlreadyExistsException e)
         {System.out.println(e.getMessage());}
 
         try
@@ -89,7 +87,7 @@ public class JFood
             DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1, food3, DatabaseCustomer.getCustomerById(1)));
             DatabaseInvoice.getInvoiceByCustomer(1).get(DatabaseInvoice.getInvoiceByCustomer(1).size() - 1).setTotalPrice();
         }
-        catch(CustomerNotFoundException e)
+        catch(CustomerNotFoundException | OngoingInvoiceAlreadyExistsException e)
         {System.out.println(e.getMessage());}
 
 
