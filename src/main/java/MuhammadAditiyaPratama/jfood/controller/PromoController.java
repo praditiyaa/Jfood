@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class PromoController
 {
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Promo> getAllPromo(@PathVariable int id)
+    public ArrayList<Promo> getAllPromo()
     {
         return DatabasePromo.getPromoDatabase();
     }
@@ -18,8 +18,7 @@ public class PromoController
     public Promo getPromoByCode(@PathVariable String code)
     throws PromoNotFoundException
     {
-        Promo promo = DatabasePromo.getPromoByCode(code);
-        return promo;
+        return DatabasePromo.getPromoByCode(code);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

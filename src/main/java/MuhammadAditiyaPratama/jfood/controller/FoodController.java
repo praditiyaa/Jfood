@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class FoodController
 {
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Food> getAllFood(@PathVariable int id)
+    public ArrayList<Food> getAllFood()
     {
         return DatabaseFood.getFoodDatabase();
     }

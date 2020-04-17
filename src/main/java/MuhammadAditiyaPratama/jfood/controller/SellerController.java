@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class SellerController
 {
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Seller> getAllSeller(@PathVariable int id)
+    public ArrayList<Seller> getAllSeller()
     {
         return DatabaseSeller.getSellerDatabase();
     }

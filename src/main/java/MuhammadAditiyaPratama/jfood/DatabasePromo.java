@@ -39,7 +39,7 @@ public class DatabasePromo
     {
         for(Promo promo : PROMO_DATABASE)
         {
-            if (promo.getCode() == code)
+            if (promo.getCode().equals(code))
             {
                 return promo;
             }

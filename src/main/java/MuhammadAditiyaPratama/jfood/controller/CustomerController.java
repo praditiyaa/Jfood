@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
 
-
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Customer getCustomerById(@PathVariable int id) {
         Customer customer = null;
         try

@@ -15,22 +15,22 @@ public class JFood {
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId()+1, "Khallisa", "khallisa92@gmail.com", "081280808437", location2));
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId()+1, "Pratama", "pitiya92@gmail.com", "081280808438", location3));
 
-        try {DatabaseFood.addFood(new Food(DatabaseSeller.getLastId()+1, "Ice Cafe Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 15000, FoodCategory.coffe));}
+        try {DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1, "Ice Cafe Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 15000, FoodCategory.coffe));}
         catch (SellerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
-        try {DatabaseFood.addFood(new Food(DatabaseSeller.getLastId()+1, "Ice Vanilla Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 20000, FoodCategory.coffe));}
+        try {DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1, "Ice Vanilla Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 20000, FoodCategory.coffe));}
         catch (SellerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
-        try {DatabaseFood.addFood(new Food(DatabaseSeller.getLastId()+1, "Ice Chocolate Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 18000, FoodCategory.coffe));}
+        try {DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1, "Ice Chocolate Latte", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 18000, FoodCategory.coffe));}
         catch (SellerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
-        try {DatabaseFood.addFood(new Food(DatabaseSeller.getLastId()+1, "French Fries", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 25000, FoodCategory.beverages));}
+        try {DatabaseFood.addFood(new Food(DatabaseFood.getLastId()+1, "French Fries", DatabaseSeller.getSellerById(DatabaseSeller.getLastId()), 25000, FoodCategory.beverages));}
         catch (SellerNotFoundException e)
         {
             System.out.println(e.getMessage());
