@@ -36,9 +36,9 @@ public class InvoiceController
         return DatabaseInvoice.getInvoiceByCustomer(customerId);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
-    public Invoice changeInvoiceStatus(@RequestParam(value="Id") int id,
-                                       @RequestParam(value="Invoice Status") InvoiceStatus status )
+    @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
+    public Invoice changeInvoiceStatus(@PathVariable int id,
+                                       @RequestParam(value = "invoiceStatus") InvoiceStatus status)
     {
         boolean invoiceStats = DatabaseInvoice.changeInvoiceStatus(id, status);
         if(invoiceStats)
